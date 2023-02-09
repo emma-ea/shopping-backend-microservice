@@ -5,6 +5,7 @@ import com.emma_ea.product.dto.ProductResponse;
 import com.emma_ea.product.model.Product;
 import com.emma_ea.product.repository.ProductRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 public class ProductService {
 
@@ -45,11 +46,16 @@ public class ProductService {
     }
 
     public List<ProductResponse> products() {
-        return productRepository.findAll().stream().map((product) -> ProductResponse.builder()
+        return productRepository.findAll().stream().map(this::productResponseMapper)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    private ProductResponse productResponseMapper(Product product) {
+        return ProductResponse.builder()
                 .id(product.getId())
                 .name(product.getName())
                 .description(product.getDescription())
                 .price(product.getPrice())
-                .build()).collect(Collectors.toList());
+                .build();
     }
 }
