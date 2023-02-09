@@ -7,17 +7,23 @@ Handling:
 ## Directory structure
 
 * Controller
+
 Handling HTTP requests from client
 
 * Service
+
 Business logic implementations
+
 May handle message queuing
 
 * Repository
+
 Database interactions
 
 * Models
-Product models
+
+ Product models
 
 * DTOs
+
 Exposes models for HTTP request and response
