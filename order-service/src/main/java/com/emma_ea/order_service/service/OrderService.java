@@ -2,6 +2,7 @@ package com.emma_ea.order_service.service;
 
 import com.emma_ea.order_service.dto.OrderLineItemsDto;
 import com.emma_ea.order_service.dto.OrderRequest;
+import com.emma_ea.order_service.dto.OrderResponse;
 import com.emma_ea.order_service.model.Order;
 import com.emma_ea.order_service.model.OrderLineItems;
 import com.emma_ea.order_service.repository.OrderRepository;
@@ -44,6 +45,31 @@ public class OrderService {
         orderLineItems.setPrice(orderLineItemsDto.getPrice());
         orderLineItems.setQuantity(orderLineItemsDto.getQuantity());
         return orderLineItems;
+    }
+
+    public List<OrderResponse> orders() {
+        return orderRepository.findAll()
+                .stream().map(this::ordersToResponseMapper)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    private OrderResponse ordersToResponseMapper(Order order) {
+        OrderResponse orderResponse = new OrderResponse();
+        orderResponse.setOrderNumber(order.getOrderNumber());
+        orderResponse.setOrderLineItemsDtoList(order.getOrderLineItemsList()
+                .stream()
+                .map(this::orderLineItemsDtoMapper)
+                .collect(Collectors.toUnmodifiableList())
+        );
+        return orderResponse;
+    }
+
+    private OrderLineItemsDto orderLineItemsDtoMapper(OrderLineItems orderLine) {
+        OrderLineItemsDto orderLineItemsDto = new OrderLineItemsDto();
+        orderLineItemsDto.setPrice(orderLine.getPrice());
+        orderLineItemsDto.setSkuCode(orderLine.getSkuCode());
+        orderLineItemsDto.setQuantity(orderLine.getQuantity());
+        return orderLineItemsDto;
     }
 
 }
