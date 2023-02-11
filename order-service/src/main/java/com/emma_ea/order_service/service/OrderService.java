@@ -8,6 +8,8 @@ import com.emma_ea.order_service.model.OrderLineItems;
 import com.emma_ea.order_service.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -53,6 +55,17 @@ public class OrderService {
                 .collect(Collectors.toUnmodifiableList());
     }
 
+    public ResponseEntity<String> delete(String id) {
+        try {
+            Order order = orderRepository.findByOrderNumber(id).orElseThrow();
+            orderRepository.deleteById(order.getId());
+            return new ResponseEntity<>("Order deleted.", HttpStatus.OK);
+        } catch (Exception e) {
+            String error = String.format("Order %s failed to be deleted. %s", id, e.getMessage());
+            return new ResponseEntity<>(error, HttpStatus.OK);
+        }
+    }
+
     private OrderResponse ordersToResponseMapper(Order order) {
         OrderResponse orderResponse = new OrderResponse();
         orderResponse.setOrderNumber(order.getOrderNumber());
@@ -71,5 +84,4 @@ public class OrderService {
         orderLineItemsDto.setQuantity(orderLine.getQuantity());
         return orderLineItemsDto;
     }
-
 }
