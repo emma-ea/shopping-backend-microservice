@@ -3,10 +3,13 @@ package com.emma_ea.order_service;
 import com.emma_ea.order_service.dto.OrderLineItemsDto;
 import com.emma_ea.order_service.dto.OrderRequest;
 import com.emma_ea.order_service.model.OrderLineItems;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.ClassRule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockReset;
 import org.springframework.http.MediaType;
@@ -18,7 +21,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 import org.testcontainers.utility.DockerImageName;
 
 import java.math.BigDecimal;
@@ -28,6 +30,7 @@ import java.util.List;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
+@AutoConfigureMockMvc
 @Testcontainers
 class OrderServiceApplicationTests {
 
@@ -43,6 +46,11 @@ class OrderServiceApplicationTests {
 
 	@Autowired
 	ObjectMapper objectMapper;
+
+	@DynamicPropertySource
+	static void setProperties(DynamicPropertyRegistry dym) {
+		dym.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
+	}
 
 	@Test
 	void postShouldCreateOrderAndReturnSuccessfulCreatedResponse() throws Exception {
@@ -62,9 +70,9 @@ class OrderServiceApplicationTests {
 	private OrderRequest makeOrderRequest() {
 		OrderRequest orderRequest = new OrderRequest();
 		OrderLineItemsDto items = new OrderLineItemsDto();
-		items.setPrice(BigDecimal.valueOf(100));
-		items.setSkuCode("Test Item");
-		items.setQuantity(1);
+		items.setPrice(BigDecimal.valueOf(1100));
+		items.setSkuCode("ITest 1");
+		items.setQuantity(2);
 		List<OrderLineItemsDto> list = new ArrayList<>();
 		list.add(items);
 		orderRequest.setOrderLineItemsDtoList(list);

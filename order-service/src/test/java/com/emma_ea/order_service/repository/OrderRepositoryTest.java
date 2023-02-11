@@ -67,7 +67,7 @@ public class OrderRepositoryTest {
     private OrderRequest makeOrderRequest() {
         OrderRequest orderRequest = new OrderRequest();
         OrderLineItemsDto items = new OrderLineItemsDto();
-        items.setPrice(BigDecimal.valueOf(100));
+        items.setPrice(BigDecimal.valueOf(1100));
         items.setSkuCode("Test Item");
         items.setQuantity(1);
         List<OrderLineItemsDto> list = new ArrayList<>();
