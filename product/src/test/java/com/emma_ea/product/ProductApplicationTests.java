@@ -7,6 +7,7 @@ import com.emma_ea.product.repository.ProductRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
+import org.junit.ClassRule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ProductApplicationTests {
 
 	@Container
+	@ClassRule
 	static final MongoDBContainer mongoDBContainer =
 			new MongoDBContainer(DockerImageName.parse("mongo:4.4.2"));
 
