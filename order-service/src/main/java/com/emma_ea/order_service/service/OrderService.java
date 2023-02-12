@@ -62,7 +62,7 @@ public class OrderService {
             return new ResponseEntity<>("Order deleted.", HttpStatus.OK);
         } catch (Exception e) {
             String error = String.format("Order %s failed to be deleted. %s", id, e.getMessage());
-            return new ResponseEntity<>(error, HttpStatus.OK);
+            return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
         }
     }
 
