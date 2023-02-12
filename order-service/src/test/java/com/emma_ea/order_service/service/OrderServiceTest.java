@@ -2,20 +2,28 @@ package com.emma_ea.order_service.service;
 
 import com.emma_ea.order_service.dto.OrderLineItemsDto;
 import com.emma_ea.order_service.dto.OrderRequest;
+import com.emma_ea.order_service.model.Order;
+import com.emma_ea.order_service.model.OrderLineItems;
 import com.emma_ea.order_service.repository.OrderRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.MockSettings;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.ResponseEntity;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 public class OrderServiceTest {
 
     private final OrderRepository orderRepositoryMock = Mockito.mock(OrderRepository.class);
@@ -31,6 +39,31 @@ public class OrderServiceTest {
 
         Mockito.verify(orderServiceMock, Mockito.times(1)).createOrder(makeOrder());
 
+    }
+
+    @Test
+    void deleteOrder() {
+        OrderService service = new OrderService(orderRepositoryMock);
+
+        Order order = new Order();
+        order.setId(1L);
+        order.setOrderNumber("111-111");
+
+        OrderLineItems orderLineItems = new OrderLineItems();
+        orderLineItems.setId(1L);
+        orderLineItems.setPrice(BigDecimal.valueOf(100));
+        orderLineItems.setSkuCode("Test Item");
+        orderLineItems.setQuantity(1);
+
+        List<OrderLineItems> items = new ArrayList<>();
+        items.add(orderLineItems);
+
+        order.setOrderLineItemsList(items);
+
+        orderServiceMock.delete("111-111");
+
+        Mockito.when(orderRepositoryMock.findByOrderNumber(order.getOrderNumber())).thenReturn(Optional.of(order));
+        Mockito.verify(orderServiceMock, Mockito.times(1)).delete("111-111");
     }
 
     private OrderRequest makeOrder() {

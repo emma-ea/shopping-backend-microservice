@@ -30,7 +30,7 @@ public class OrderController {
         return orderService.orders();
     }
 
-    @DeleteMapping
+    @DeleteMapping("order")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<String> delete(@RequestParam(name = "id") String id) {
         return orderService.delete(id);
