@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.emma_ea.product.ProductApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 38.158 s - in com.emma_ea.product.ProductApplicationTests
