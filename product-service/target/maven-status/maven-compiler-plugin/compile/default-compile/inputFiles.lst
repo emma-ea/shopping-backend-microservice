@@ -1,0 +1,7 @@
+/home/emma/spring/shopping-microservice/product-service/src/main/java/com/emma_ea/product/service/ProductService.java
+/home/emma/spring/shopping-microservice/product-service/src/main/java/com/emma_ea/product/model/Product.java
+/home/emma/spring/shopping-microservice/product-service/src/main/java/com/emma_ea/product/dto/ProductRequest.java
+/home/emma/spring/shopping-microservice/product-service/src/main/java/com/emma_ea/product/controller/ProductController.java
+/home/emma/spring/shopping-microservice/product-service/src/main/java/com/emma_ea/product/repository/ProductRepository.java
+/home/emma/spring/shopping-microservice/product-service/src/main/java/com/emma_ea/product/ProductApplication.java
+/home/emma/spring/shopping-microservice/product-service/src/main/java/com/emma_ea/product/dto/ProductResponse.java

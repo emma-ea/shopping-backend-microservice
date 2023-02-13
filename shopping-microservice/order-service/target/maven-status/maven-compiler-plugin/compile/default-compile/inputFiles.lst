@@ -1,9 +1,0 @@
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/model/Order.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/OrderServiceApplication.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/service/OrderService.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/repository/OrderRepository.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/controller/OrderController.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/dto/OrderResponse.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/model/OrderLineItems.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/dto/OrderRequest.java
-/home/emma/spring/shopping-app-microservices/shopping-microservice/order-service/src/main/java/com/emma_ea/order_service/dto/OrderLineItemsDto.java
