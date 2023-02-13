@@ -23,7 +23,7 @@ jobs:
       - name: Setup maven
         uses: stCarolas/setup-maven@4.4
         with:
-          maven-version: 2.7.8
+          maven-version: 3.8.2
 
       - name: Tests and Coverage
         run: mvn clean install
