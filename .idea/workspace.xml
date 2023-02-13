@@ -4,14 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9772175c-fa9d-4380-a299-b7ea8b2e74e0" name="Default Changelist" comment="" />
+    <list default="true" id="9772175c-fa9d-4380-a299-b7ea8b2e74e0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/target/inventory-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/inventory-service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/target/inventory-service-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/inventory-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/target/surefire-reports/TEST-com.emma_ea.inventory_service.InventoryServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/surefire-reports/TEST-com.emma_ea.inventory_service.InventoryServiceApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/target/surefire-reports/TEST-com.emma_ea.inventory_service.service.InventoryServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/surefire-reports/TEST-com.emma_ea.inventory_service.service.InventoryServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/target/surefire-reports/com.emma_ea.inventory_service.InventoryServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/surefire-reports/com.emma_ea.inventory_service.InventoryServiceApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory-service/target/surefire-reports/com.emma_ea.inventory_service.service.InventoryServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inventory-service/target/surefire-reports/com.emma_ea.inventory_service.service.InventoryServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/order-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/order-service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/order-service-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/order-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/surefire-reports/TEST-com.emma_ea.order_service.OrderServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/surefire-reports/TEST-com.emma_ea.order_service.OrderServiceApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/surefire-reports/TEST-com.emma_ea.order_service.repository.OrderRepositoryTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/surefire-reports/TEST-com.emma_ea.order_service.repository.OrderRepositoryTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/surefire-reports/TEST-com.emma_ea.order_service.service.OrderServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/surefire-reports/TEST-com.emma_ea.order_service.service.OrderServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/surefire-reports/com.emma_ea.order_service.OrderServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/surefire-reports/com.emma_ea.order_service.OrderServiceApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/surefire-reports/com.emma_ea.order_service.repository.OrderRepositoryTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/surefire-reports/com.emma_ea.order_service.repository.OrderRepositoryTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/surefire-reports/com.emma_ea.order_service.service.OrderServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/surefire-reports/com.emma_ea.order_service.service.OrderServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/product-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/product-service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/product-service-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/product-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/surefire-reports/TEST-com.emma_ea.product.ProductApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/surefire-reports/TEST-com.emma_ea.product.ProductApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/surefire-reports/com.emma_ea.product.ProductApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/target/surefire-reports/com.emma_ea.product.ProductApplicationTests.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="usePluginRegistry" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2Ldy4yKbCWrzl3l3XZ0BXRKrhmw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -25,6 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
