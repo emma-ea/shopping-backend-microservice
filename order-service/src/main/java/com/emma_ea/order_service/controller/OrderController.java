@@ -20,8 +20,7 @@ public class OrderController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public String createOrder(@RequestBody OrderRequest orderRequest) {
-        orderService.createOrder(orderRequest);
-        return "Order created Successfully";
+        return orderService.createOrder(orderRequest);
     }
 
     @GetMapping

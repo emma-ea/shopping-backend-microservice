@@ -1,8 +1,6 @@
 package com.emma_ea.order_service.service;
 
-import com.emma_ea.order_service.dto.OrderLineItemsDto;
-import com.emma_ea.order_service.dto.OrderRequest;
-import com.emma_ea.order_service.dto.OrderResponse;
+import com.emma_ea.order_service.dto.*;
 import com.emma_ea.order_service.model.Order;
 import com.emma_ea.order_service.model.OrderLineItems;
 import com.emma_ea.order_service.repository.OrderRepository;
@@ -11,22 +9,58 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
+//@Transactional
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final WebClient webClient;
 
-    public void createOrder(OrderRequest orderRequest) {
+    public String createOrder(OrderRequest orderRequest) {
         Order order = buildOrder(orderRequest);
-        orderRepository.save(order);
-        log.info("Order {} created", order.getId());
+        boolean inStock = checkOrderInventory(order);
+        if (inStock) {
+            orderRepository.save(order);
+            log.info("Order {} created", order.getId());
+            return "Order created";
+        }
+        log.info("Order {} failed", order.getId());
+        return "Order failed";
+    }
+
+    public boolean checkOrderInventory(Order order) {
+        List<InventoryRequest> inventory = order.getOrderLineItemsList()
+                .stream()
+                .map(orderLine -> new InventoryRequest(orderLine.getSkuCode(), orderLine.getQuantity()))
+                .collect(Collectors.toUnmodifiableList());
+
+        List<String> skuCodes = inventory.stream().map(InventoryRequest::getSkuCode).collect(Collectors.toUnmodifiableList());
+
+        List<InventoryResponse> response = Arrays.asList(Objects.requireNonNull(
+                webClient.get()
+                        .uri("http://localhost:8082/api/inventory",
+                                uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
+                        .retrieve()
+                        .bodyToMono(InventoryResponse[].class)
+                        .block()
+                ));
+
+        log.info(response.toString());
+
+        if (response.isEmpty()) return false;
+
+        return response.stream().allMatch(InventoryResponse::isInStock);
     }
 
     private Order buildOrder(OrderRequest orderRequest) {
