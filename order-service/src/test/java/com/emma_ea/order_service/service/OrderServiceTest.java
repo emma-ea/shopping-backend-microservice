@@ -13,7 +13,9 @@ import org.mockito.Mock;
 import org.mockito.MockSettings;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -28,8 +30,11 @@ public class OrderServiceTest {
 
     private final OrderRepository orderRepositoryMock = Mockito.mock(OrderRepository.class);
 
+    @Autowired
+    private WebClient webClient;
+
     private final OrderService orderServiceMock = Mockito.mock(
-            OrderService.class, Mockito.withSettings().useConstructor(orderRepositoryMock));
+            OrderService.class, Mockito.withSettings().useConstructor(orderRepositoryMock, webClient));
 
     @Test
     @DisplayName("Create order should be verified if invoked")
@@ -43,7 +48,7 @@ public class OrderServiceTest {
 
     @Test
     void deleteOrder() {
-        OrderService service = new OrderService(orderRepositoryMock);
+        OrderService service = new OrderService(orderRepositoryMock, webClient);
 
         Order order = new Order();
         order.setId(1L);
