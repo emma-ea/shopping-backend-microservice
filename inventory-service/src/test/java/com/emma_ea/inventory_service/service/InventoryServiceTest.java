@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class InventoryServiceTest {
@@ -17,11 +20,14 @@ class InventoryServiceTest {
     @Test
     public void productInStock() {
 
-        Mockito.when(serviceMock.inStock("111")).thenReturn(true);
+        List<String> codes = new ArrayList<>();
+        codes.add("Samsung_s5");
 
-        serviceMock.inStock("111");
+        Mockito.when(serviceMock.inStock(codes));
 
-        Mockito.verify(serviceMock).inStock("111");
+        serviceMock.inStock(codes);
+
+        Mockito.verify(serviceMock).inStock(codes);
 
     }
 
