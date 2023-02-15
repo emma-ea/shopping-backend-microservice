@@ -31,7 +31,7 @@ public class OrderServiceTest {
     private final OrderRepository orderRepositoryMock = Mockito.mock(OrderRepository.class);
 
     @Autowired
-    private WebClient webClient;
+    private WebClient.Builder webClient;
 
     private final OrderService orderServiceMock = Mockito.mock(
             OrderService.class, Mockito.withSettings().useConstructor(orderRepositoryMock, webClient));

@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClient;
 
     public String createOrder(OrderRequest orderRequest) {
         Order order = buildOrder(orderRequest);
@@ -48,8 +48,8 @@ public class OrderService {
         List<String> skuCodes = inventory.stream().map(InventoryRequest::getSkuCode).collect(Collectors.toUnmodifiableList());
 
         List<InventoryResponse> response = Arrays.asList(Objects.requireNonNull(
-                webClient.get()
-                        .uri("http://localhost:8082/api/inventory",
+                webClient.build().get()
+                        .uri("http://inventory-service/api/inventory",
                                 uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
                         .retrieve()
                         .bodyToMono(InventoryResponse[].class)
