@@ -3,3 +3,5 @@ inventory-service/target/
 product-service/target/
 
 .idea/
+
+shopping-client.json
