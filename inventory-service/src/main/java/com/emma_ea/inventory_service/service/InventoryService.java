@@ -20,7 +20,7 @@ public class InventoryService {
 
     private final InventoryRepository inventoryRepository;
 
-//    @Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public List<InventoryResponse> inStock(List<String> skuCode) {
         log.info("checking inventory");
         List<Inventory> inventory = inventoryRepository.findBySkuCodeIn(skuCode);
