@@ -4,6 +4,7 @@ import com.emma_ea.inventory_service.dto.InventoryResponse;
 import com.emma_ea.inventory_service.model.Inventory;
 import com.emma_ea.inventory_service.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,14 @@ public class InventoryService {
     private final InventoryRepository inventoryRepository;
 
     @Transactional(readOnly = true)
+    @SneakyThrows   // dev purposes
     public List<InventoryResponse> inStock(List<String> skuCode) {
         log.info("checking inventory");
+
+        log.info("Wait started");
+        Thread.sleep(10000);    // simulating slow network connection
+        log.info("Wait ended");
+
         List<Inventory> inventory = inventoryRepository.findBySkuCodeIn(skuCode);
         List<InventoryResponse> responses = inventory.stream()
                 .map(this::inventoryDtoMapper)
