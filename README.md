@@ -16,4 +16,5 @@ implementing a shopping app backend using microservices architecture and spring 
 ## Other technologies
 1. KeyCloak
 2. Eureka
-....
+3. Resilience4j
+4. Spring Actuator
