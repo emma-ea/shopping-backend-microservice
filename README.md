@@ -2,19 +2,18 @@
 implementing a shopping app backend using microservices architecture and spring boot java
 
 ## Services
-1. Products
-2. Order
-3. Inventory
-4. Notifications
-....
+* Products
+* Order
+* Inventory
+* Notifications
 
 ## Databases
-1. Mongo DB
-2. PostgreSQL
-....
+* Mongo DB
+* PostgreSQL
 
 ## Other technologies
-1. KeyCloak
-2. Eureka
-3. Resilience4j
-4. Spring Actuator
+* KeyCloak
+* Eureka
+* Resilience4j
+* Spring Actuator
+* Zipkin x Spring Sleuth
