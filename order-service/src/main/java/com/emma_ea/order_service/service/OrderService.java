@@ -6,6 +6,8 @@ import com.emma_ea.order_service.model.OrderLineItems;
 import com.emma_ea.order_service.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.sleuth.Span;
+import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,16 +29,24 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClient;
 
+    private final Tracer tracer;
+
     public String createOrder(OrderRequest orderRequest) {
         Order order = buildOrder(orderRequest);
-        boolean inStock = checkOrderInventory(order);
-        if (inStock) {
-            orderRepository.save(order);
-            log.info("Order {} created", order.getId());
-            return "Order created";
+
+        Span inventorySpan = tracer.nextSpan().name("InventoryServiceLookUp");
+        try(Tracer.SpanInScope spanInScope = tracer.withSpan(inventorySpan.start())) {
+            boolean inStock = checkOrderInventory(order);
+            if (inStock) {
+                orderRepository.save(order);
+                log.info("Order {} created", order.getId());
+                return "Order created";
+            }
+            log.info("Order {} failed", order.getId());
+            return "Order failed";
+        } finally {
+            inventorySpan.end();
         }
-        log.info("Order {} failed", order.getId());
-        return "Order failed";
     }
 
     public boolean checkOrderInventory(Order order) {

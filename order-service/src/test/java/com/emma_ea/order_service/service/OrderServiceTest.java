@@ -14,6 +14,7 @@ import org.mockito.MockSettings;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -31,10 +32,13 @@ public class OrderServiceTest {
     private final OrderRepository orderRepositoryMock = Mockito.mock(OrderRepository.class);
 
     @Autowired
+    private Tracer tracer;
+
+    @Autowired
     private WebClient.Builder webClient;
 
     private final OrderService orderServiceMock = Mockito.mock(
-            OrderService.class, Mockito.withSettings().useConstructor(orderRepositoryMock, webClient));
+            OrderService.class, Mockito.withSettings().useConstructor(orderRepositoryMock, webClient, tracer));
 
     @Test
     @DisplayName("Create order should be verified if invoked")
@@ -48,7 +52,7 @@ public class OrderServiceTest {
 
     @Test
     void deleteOrder() {
-        OrderService service = new OrderService(orderRepositoryMock, webClient);
+        OrderService service = new OrderService(orderRepositoryMock, webClient, tracer);
 
         Order order = new Order();
         order.setId(1L);
