@@ -26,9 +26,9 @@ public class InventoryService {
     public List<InventoryResponse> inStock(List<String> skuCode) {
         log.info("checking inventory");
 
-        log.info("Wait started");
+        /*log.info("Wait started");
         Thread.sleep(10000);    // simulating slow network connection
-        log.info("Wait ended");
+        log.info("Wait ended");*/
 
         List<Inventory> inventory = inventoryRepository.findBySkuCodeIn(skuCode);
         List<InventoryResponse> responses = inventory.stream()
