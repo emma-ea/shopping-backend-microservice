@@ -3,6 +3,8 @@ package com.emma_ea.order_service.events;
 public class OrderPlacedEvent {
     private String orderNumber;
 
+    public OrderPlacedEvent() {}
+
     public OrderPlacedEvent(String orderNumber) {
         this.orderNumber = orderNumber;
     }

@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9772175c-fa9d-4380-a299-b7ea8b2e74e0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/emma_ea/notification_service/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/emma_ea/notification_service/NotificationServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/target/classes/com/emma_ea/notification_service/NotificationServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/target/classes/com/emma_ea/notification_service/NotificationServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/emma_ea/notification_service/events/OrderPlacedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/emma_ea/notification_service/events/OrderPlacedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/target/classes/com/emma_ea/notification_service/events/OrderPlacedEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/target/classes/com/emma_ea/notification_service/events/OrderPlacedEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/java/com/emma_ea/order_service/events/OrderPlacedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/java/com/emma_ea/order_service/events/OrderPlacedEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,8 +157,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.OrderServiceApplication" />
         <item itemvalue="Application.NotificationServiceApplication" />
+        <item itemvalue="Application.OrderServiceApplication" />
         <item itemvalue="Application.ProductApplication" />
         <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.InventoryServiceApplication" />
