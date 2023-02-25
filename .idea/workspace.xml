@@ -8,7 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/emma_ea/notification_service/NotificationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/emma_ea/notification_service/NotificationServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/target/classes/com/emma_ea/notification_service/NotificationServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/target/classes/com/emma_ea/notification_service/NotificationServiceApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,13 +72,13 @@
       <command value="mvn clean verify" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.NotificationServiceApplication">
-    <configuration name="DiscoveryServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.emma_ea.discovery_service.DiscoveryServiceApplication" />
-      <module name="discovery-service" />
+  <component name="RunManager" selected="Application.OrderServiceApplication">
+    <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.emma_ea.api_gateway.ApiGatewayApplication" />
+      <module name="api-gateway" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.emma_ea.discovery_service.*" />
+          <option name="PATTERN" value="com.emma_ea.api_gateway.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,7 +125,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.emma_ea.product.ProductApplication" />
       <module name="product-service" />
       <extension name="coverage">
@@ -149,19 +152,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.DiscoveryServiceApplication" />
       <item itemvalue="Application.InventoryServiceApplication" />
       <item itemvalue="Application.OrderServiceApplication" />
-      <item itemvalue="Application.ProductApplication" />
       <item itemvalue="Application.NotificationServiceApplication" />
+      <item itemvalue="Application.ApiGatewayApplication" />
+      <item itemvalue="Application.ProductApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NotificationServiceApplication" />
-        <item itemvalue="Application.DiscoveryServiceApplication" />
         <item itemvalue="Application.OrderServiceApplication" />
-        <item itemvalue="Application.InventoryServiceApplication" />
+        <item itemvalue="Application.NotificationServiceApplication" />
         <item itemvalue="Application.ProductApplication" />
+        <item itemvalue="Application.ApiGatewayApplication" />
+        <item itemvalue="Application.InventoryServiceApplication" />
       </list>
     </recent_temporary>
   </component>
