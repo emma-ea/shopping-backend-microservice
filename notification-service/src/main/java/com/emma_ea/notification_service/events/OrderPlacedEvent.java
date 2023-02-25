@@ -1,4 +1,4 @@
-package com.emma_ea.order_service.events;
+package com.emma_ea.notification_service.events;
 
 public class OrderPlacedEvent {
     private String orderNumber;
