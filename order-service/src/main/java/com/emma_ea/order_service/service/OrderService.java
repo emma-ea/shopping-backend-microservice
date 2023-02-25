@@ -1,6 +1,7 @@
 package com.emma_ea.order_service.service;
 
 import com.emma_ea.order_service.dto.*;
+import com.emma_ea.order_service.events.OrderPlacedEvent;
 import com.emma_ea.order_service.model.Order;
 import com.emma_ea.order_service.model.OrderLineItems;
 import com.emma_ea.order_service.repository.OrderRepository;
@@ -10,6 +11,7 @@ import org.springframework.cloud.sleuth.Span;
 import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -28,6 +30,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final WebClient.Builder webClient;
+    private final KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate;
 
     private final Tracer tracer;
 
@@ -39,6 +42,7 @@ public class OrderService {
             boolean inStock = checkOrderInventory(order);
             if (inStock) {
                 orderRepository.save(order);
+                kafkaTemplate.send("notificationTopic", new OrderPlacedEvent(order.getOrderNumber()));
                 log.info("Order {} created", order.getId());
                 return "Order created";
             }
