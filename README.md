@@ -17,3 +17,5 @@ implementing a shopping app backend using microservices architecture and spring 
 * Resilience4j
 * Spring Actuator
 * Zipkin x Spring Sleuth
+* Kafka
+

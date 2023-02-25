@@ -2,6 +2,7 @@ package com.emma_ea.order_service.service;
 
 import com.emma_ea.order_service.dto.OrderLineItemsDto;
 import com.emma_ea.order_service.dto.OrderRequest;
+import com.emma_ea.order_service.events.OrderPlacedEvent;
 import com.emma_ea.order_service.model.Order;
 import com.emma_ea.order_service.model.OrderLineItems;
 import com.emma_ea.order_service.repository.OrderRepository;
@@ -16,6 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.math.BigDecimal;
@@ -37,8 +39,11 @@ public class OrderServiceTest {
     @Autowired
     private WebClient.Builder webClient;
 
+    @Autowired
+    private KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate;
+
     private final OrderService orderServiceMock = Mockito.mock(
-            OrderService.class, Mockito.withSettings().useConstructor(orderRepositoryMock, webClient, tracer));
+            OrderService.class, Mockito.withSettings().useConstructor(orderRepositoryMock, webClient, tracer, kafkaTemplate));
 
     @Test
     @DisplayName("Create order should be verified if invoked")
@@ -52,7 +57,7 @@ public class OrderServiceTest {
 
     @Test
     void deleteOrder() {
-        OrderService service = new OrderService(orderRepositoryMock, webClient, tracer);
+        OrderService service = new OrderService(orderRepositoryMock, webClient, kafkaTemplate, tracer);
 
         Order order = new Order();
         order.setId(1L);
