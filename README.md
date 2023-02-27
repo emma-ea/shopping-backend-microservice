@@ -18,4 +18,4 @@ implementing a shopping app backend using microservices architecture and spring 
 * Spring Actuator
 * Zipkin x Spring Sleuth
 * Kafka
-
+* Jib
