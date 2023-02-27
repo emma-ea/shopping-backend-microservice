@@ -1,6 +1,9 @@
 order-service/target/
 inventory-service/target/
 product-service/target/
+api-gateway/target/
+discovery-service/target/
+notification-service/target/
 
 .idea/
 
