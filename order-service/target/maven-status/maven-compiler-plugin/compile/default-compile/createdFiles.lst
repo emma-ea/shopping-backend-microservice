@@ -1,9 +1,13 @@
+com/emma_ea/order_service/repository/OrderRepository.class
+com/emma_ea/order_service/dto/InventoryResponse.class
+com/emma_ea/order_service/dto/InventoryRequest.class
+com/emma_ea/order_service/service/OrderService.class
+com/emma_ea/order_service/model/OrderLineItems.class
 com/emma_ea/order_service/model/Order.class
+com/emma_ea/order_service/events/OrderPlacedEvent.class
 com/emma_ea/order_service/controller/OrderController.class
 com/emma_ea/order_service/dto/OrderLineItemsDto.class
-com/emma_ea/order_service/repository/OrderRepository.class
 com/emma_ea/order_service/dto/OrderResponse.class
 com/emma_ea/order_service/dto/OrderRequest.class
 com/emma_ea/order_service/OrderServiceApplication.class
-com/emma_ea/order_service/service/OrderService.class
-com/emma_ea/order_service/model/OrderLineItems.class
+com/emma_ea/order_service/config/WebClientConfig.class

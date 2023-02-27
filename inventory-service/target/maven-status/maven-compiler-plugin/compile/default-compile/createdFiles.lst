@@ -1,3 +1,4 @@
+com/emma_ea/inventory_service/dto/InventoryResponse.class
 com/emma_ea/inventory_service/service/InventoryService.class
 com/emma_ea/inventory_service/controller/InventoryController.class
 com/emma_ea/inventory_service/model/Inventory.class
